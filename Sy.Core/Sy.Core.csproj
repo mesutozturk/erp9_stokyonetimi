@@ -51,6 +51,7 @@
     <Compile Include="Abstracts\AuditBase.cs" />
     <Compile Include="Abstracts\BaseEntity.cs" />
     <Compile Include="Abstracts\IEntity.cs" />
+    <Compile Include="Abstracts\IRepository.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
