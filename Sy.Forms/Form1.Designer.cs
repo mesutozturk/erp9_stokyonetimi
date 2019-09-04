@@ -108,19 +108,20 @@
             // siparişlerToolStripMenuItem
             // 
             this.siparişlerToolStripMenuItem.Name = "siparişlerToolStripMenuItem";
-            this.siparişlerToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.siparişlerToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.siparişlerToolStripMenuItem.Text = "Siparişler";
+            this.siparişlerToolStripMenuItem.Click += new System.EventHandler(this.siparişlerToolStripMenuItem_Click);
             // 
             // müşterilerToolStripMenuItem
             // 
             this.müşterilerToolStripMenuItem.Name = "müşterilerToolStripMenuItem";
-            this.müşterilerToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.müşterilerToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.müşterilerToolStripMenuItem.Text = "Müşteriler";
             // 
             // raporlarToolStripMenuItem
             // 
             this.raporlarToolStripMenuItem.Name = "raporlarToolStripMenuItem";
-            this.raporlarToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.raporlarToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.raporlarToolStripMenuItem.Text = "Raporlar";
             // 
             // Form1

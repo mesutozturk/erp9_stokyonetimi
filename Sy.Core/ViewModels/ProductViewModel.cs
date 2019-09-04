@@ -11,6 +11,7 @@ namespace Sy.Core.ViewModels
         [Range(0, 9999999)]
         public decimal UnitPrice { get; set; }
         public int CriticStock { get; set; } = 10;
-        public string Display => $"{this.ProductName} - {this.UnitPrice:c2}"; 
+        public int UnitsInStock { get; set; }
+        public string Display => $"{this.ProductName} x{this.UnitsInStock} - {this.UnitPrice:c2}";
     }
 }
