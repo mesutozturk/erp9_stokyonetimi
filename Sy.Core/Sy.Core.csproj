@@ -52,15 +52,16 @@
     <Compile Include="Abstracts\BaseEntity.cs" />
     <Compile Include="Abstracts\IEntity.cs" />
     <Compile Include="Abstracts\IRepository.cs" />
+    <Compile Include="ComplexTypes\StockSettings.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Enums\ApplicationRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\UserInfoViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ComplexTypes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

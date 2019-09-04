@@ -76,6 +76,7 @@
             this.btnGirisYap.TabIndex = 2;
             this.btnGirisYap.Text = "Giriş";
             this.btnGirisYap.UseVisualStyleBackColor = true;
+            this.btnGirisYap.Click += new System.EventHandler(this.btnGirisYap_Click);
             // 
             // LoginForm
             // 
