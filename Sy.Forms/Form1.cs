@@ -38,5 +38,11 @@ namespace Sy.Forms
             RegisterForm frm = new RegisterForm();
             frm.ShowDialog();
         }
+
+        private void ürünlerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductForm frm = new ProductForm();
+            frm.Show();
+        }
     }
 }
