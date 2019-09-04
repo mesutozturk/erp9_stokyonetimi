@@ -114,6 +114,7 @@
             this.txtAra.Name = "txtAra";
             this.txtAra.Size = new System.Drawing.Size(289, 22);
             this.txtAra.TabIndex = 7;
+            this.txtAra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAra_KeyUp);
             // 
             // lstUrunler
             // 
