@@ -1,24 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
+﻿using Sy.Business.Repository;
+using Sy.Core.Entities;
 using Sy.Forms.Auth;
+using System;
+using System.Windows.Forms;
 
 namespace Sy.Forms
 {
     public partial class Form1 : Form
     {
+        private Repository<Product, Guid> _productRepo;
         public Form1()
         {
             InitializeComponent();
+            _productRepo = new Repository<Product, Guid>();
         }
-        List<int> sayilar = new List<int>();
+
         private void btnGirisYap_Click(object sender, EventArgs e)
         {
             LoginForm frm = new LoginForm();
             frm.ShowDialog();
 
-            var result = sayilar.Where(x => x > 10);
         }
 
         private void btnKayitOl_Click(object sender, EventArgs e)

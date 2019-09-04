@@ -54,12 +54,12 @@
     <Compile Include="Abstracts\IRepository.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Enums\ApplicationRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ComplexTypes\" />
-    <Folder Include="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
