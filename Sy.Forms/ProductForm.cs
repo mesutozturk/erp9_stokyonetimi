@@ -14,5 +14,16 @@ namespace Sy.Forms
             InitializeComponent();
             _productRepo = new Repository<Product, Guid>();
         }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            _productRepo.Insert(new Product()
+            {
+                ProductName = txtUrunAdi.Text,
+                UnitPrice = nFiyat.Value,
+                CriticStock = Convert.ToInt32(nKritikStok.Value)
+            });
+            MessageBox.Show("Ürün ekleme işlemi başarılı");
+        }
     }
 }
