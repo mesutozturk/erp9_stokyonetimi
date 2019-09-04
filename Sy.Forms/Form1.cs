@@ -4,6 +4,7 @@ using Sy.Forms.Auth;
 using System;
 using System.Windows.Forms;
 using Sy.Core.ComplexTypes;
+using Sy.Core.Enums;
 
 namespace Sy.Forms
 {
@@ -14,6 +15,7 @@ namespace Sy.Forms
             InitializeComponent();
             groupBox1.Visible = true;
             lblGirisBilgi.Visible = false;
+            menuStrip1.Visible = false;
         }
 
         private void btnGirisYap_Click(object sender, EventArgs e)
@@ -30,6 +32,12 @@ namespace Sy.Forms
                 groupBox1.Visible = false;
                 lblGirisBilgi.Visible = true;
                 lblGirisBilgi.Text = StockSettings.UserInfo.Display;
+                menuStrip1.Visible = true;
+                if (StockSettings.UserInfo.ApplicationRole == ApplicationRole.Customer)
+                {
+                    ürünlerToolStripMenuItem.Visible = false;
+                    müşterilerToolStripMenuItem.Visible = false;
+                }
             }
         }
 
