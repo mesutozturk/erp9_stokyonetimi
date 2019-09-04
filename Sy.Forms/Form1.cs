@@ -9,11 +9,9 @@ namespace Sy.Forms
 {
     public partial class Form1 : Form
     {
-        private Repository<Product, Guid> _productRepo;
         public Form1()
         {
             InitializeComponent();
-            _productRepo = new Repository<Product, Guid>();
             groupBox1.Visible = true;
             lblGirisBilgi.Visible = false;
         }

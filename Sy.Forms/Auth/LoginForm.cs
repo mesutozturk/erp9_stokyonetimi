@@ -16,6 +16,7 @@ namespace Sy.Forms.Auth
         {
             InitializeComponent();
             _clientRepository = new Repository<Client, int>();
+            this.txtEmail.Text = "mesut@ozturk.com";
         }
 
         private void btnGirisYap_Click(object sender, EventArgs e)
