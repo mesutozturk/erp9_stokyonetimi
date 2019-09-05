@@ -54,6 +54,8 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.txtEmail.Location = new System.Drawing.Point(148, 60);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 22);
