@@ -24,7 +24,8 @@ namespace Sy.Forms
 
         private void ListeyiDoldur(string search = "")
         {
-            lstUrunler.DataSource = ((ProductRepo)_productRepo).GetProductList(search).Where(x=>x.UnitsInStock>0).ToList();
+            lstUrunler.DataSource = ((ProductRepo)_productRepo).GetProductList(search)
+                .Where(x => x.UnitsInStock > 0).ToList();
             lstUrunler.DisplayMember = "Display";
         }
 
