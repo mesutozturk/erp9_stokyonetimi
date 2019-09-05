@@ -9,7 +9,7 @@ namespace Sy.Forms
     public partial class CustomerOrderForm : Form
     {
         private readonly IRepository<Product, Guid> _productRepo;
-        private readonly IRepository<OrderDetail, int> _repository;
+        private readonly IRepository<OrderDetail, long> _repository;
         public CustomerOrderForm()
         {
             InitializeComponent();

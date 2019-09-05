@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Sy.Core.Abstracts;
+﻿using Sy.Core.Abstracts;
+using System;
 
 namespace Sy.Core.Entities
 {
-    public class OrderDetail : IEntity
+    public class OrderDetail : BaseEntity2<long,Guid>
     {
 
     }
