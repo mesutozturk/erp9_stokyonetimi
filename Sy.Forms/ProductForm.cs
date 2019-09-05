@@ -14,21 +14,13 @@ namespace Sy.Forms
         public ProductForm()
         {
             InitializeComponent();
-            _productRepo = new Repository<Product, Guid>();
+            _productRepo = new ProductRepo();
             ListeyiDoldur();
         }
 
         private void ListeyiDoldur(string search = "")
         {
-            var data = _productRepo.Query(x => x.ProductName.Contains(search))
-                .Select(x => new ProductViewModel()
-                {
-                    Id = x.Id,
-                    UnitPrice = x.UnitPrice,
-                    CriticStock = x.CriticStock,
-                    ProductName = x.ProductName
-                }).ToList();
-            lstUrunler.DataSource = data;
+            lstUrunler.DataSource = ((ProductRepo)_productRepo).GetProductList(search);
             lstUrunler.DisplayMember = "Display";
         }
 

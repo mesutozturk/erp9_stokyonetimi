@@ -16,32 +16,13 @@ namespace Sy.Forms
         public OrderForm()
         {
             InitializeComponent();
-            _productRepo = new Repository<Product, Guid>();
+            _productRepo = new ProductRepo();
             _productActionRepo = new Repository<ProductStockAction, long>();
             ListeyiDoldur();
         }
         private void ListeyiDoldur(string search = "")
         {
-            var data = _productRepo.Query(x => x.ProductName.Contains(search))
-                .Select(x => new ProductViewModel()
-                {
-                    Id = x.Id,
-                    UnitPrice = x.UnitPrice,
-                    CriticStock = x.CriticStock,
-                    ProductName = x.ProductName,
-                }).ToList();
-            foreach (var item in data)
-            {
-                var actionList = _productActionRepo.Query(x => x.ProductId == item.Id).ToList();
-                if (!actionList.Any()) continue;
-
-                var girenAdet = actionList.Where(x => x.StockActionType == StockActionType.Incoming)
-                    .Sum(x => x.Quantity);
-                var cikanAdet = actionList.Where(x => x.StockActionType == StockActionType.Outgoing)
-                    .Sum(x => x.Quantity);
-                item.UnitsInStock = girenAdet - cikanAdet;
-            }
-            lstUrunler.DataSource = data;
+            lstUrunler.DataSource = ((ProductRepo)_productRepo).GetProductList(search);
             lstUrunler.DisplayMember = "Display";
         }
 
@@ -50,13 +31,13 @@ namespace Sy.Forms
             ListeyiDoldur(txtAra.Text);
         }
 
-        private ProductViewModel seciliUrun;
+        private ProductViewModel _seciliUrun;
         private void lstUrunler_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstUrunler.SelectedItem == null) return;
-            seciliUrun = lstUrunler.SelectedItem as ProductViewModel;
-            lblUrunAdi.Text = seciliUrun.ProductName;
-            lblStokMiktari.Text = seciliUrun.UnitsInStock.ToString();
+            _seciliUrun = lstUrunler.SelectedItem as ProductViewModel;
+            lblUrunAdi.Text = _seciliUrun?.ProductName;
+            lblStokMiktari.Text = _seciliUrun?.UnitsInStock.ToString();
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
@@ -65,7 +46,7 @@ namespace Sy.Forms
             {
                 _productActionRepo.Insert(new ProductStockAction()
                 {
-                    ProductId = seciliUrun.Id,
+                    ProductId = _seciliUrun.Id,
                     Quantity = Convert.ToInt32(nEklenecekMiktar.Value),
                     UnitPrice = nAlisFiyati.Value,
                     StockActionType = StockActionType.Incoming

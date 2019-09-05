@@ -50,10 +50,14 @@
   <ItemGroup>
     <Compile Include="Abstracts\AuditBase.cs" />
     <Compile Include="Abstracts\BaseEntity.cs" />
+    <Compile Include="Abstracts\BaseEntity2.cs" />
     <Compile Include="Abstracts\IEntity.cs" />
+    <Compile Include="Abstracts\IEntity2.cs" />
     <Compile Include="Abstracts\IRepository.cs" />
     <Compile Include="ComplexTypes\StockSettings.cs" />
     <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\OrderDetail.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductStockAction.cs" />
     <Compile Include="Enums\ApplicationRole.cs" />

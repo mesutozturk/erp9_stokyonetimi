@@ -55,7 +55,11 @@ namespace Sy.Forms
 
         private void siparişlerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OrderForm frm = new OrderForm();
+            Form frm;
+            if (StockSettings.UserInfo.ApplicationRole == ApplicationRole.Customer)
+                frm = new CustomerOrderForm();
+            else
+                frm = new OrderForm();
             frm.Show();
         }
     }

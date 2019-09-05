@@ -11,13 +11,13 @@ namespace Sy.Business.Repository
     public class Repository<TEntity, TKey> : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
     {
-        private readonly StockDbContext _context;
+        public readonly StockDbContext Context;
         private readonly DbSet<TEntity> _table;
 
         public Repository()
         {
-            _context = new StockDbContext();
-            _table = _context.Set<TEntity>();
+            Context = new StockDbContext();
+            _table = Context.Set<TEntity>();
         }
         public TEntity GetById(TKey id)
         {
@@ -45,7 +45,7 @@ namespace Sy.Business.Repository
 
         public int Save()
         {
-            return _context.SaveChanges();
+            return Context.SaveChanges();
         }
 
         public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> predicate = null)
