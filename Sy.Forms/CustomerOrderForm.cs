@@ -90,16 +90,22 @@ namespace Sy.Forms
                 return;
             }
 
-            var orderId = ((OrderRepo)_orderRepo).MakeOrder(_sepet, dtpIstenenTarih.Value);
-            if (orderId == 0)
-                MessageBox.Show("Siparişiniz oluşmamıştır");
-            else
+            try
             {
-                MessageBox.Show($"Siparişiniz oluşmuştur: {orderId}");
+                var orderId = ((OrderRepo) _orderRepo).MakeOrder(_sepet, dtpIstenenTarih.Value);
+                MessageBox.Show($"Siparişiniz oluşmuştur:\n Sipariş No: {orderId}");
                 _sepet = new List<SepetViewModel>();
                 SepetGuncelle();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
+            finally
+            {
                 ListeyiDoldur();
             }
+            
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sy.Core.Entities;
 using Sy.Core.Enums;
 using Sy.Core.ViewModels;
@@ -27,6 +28,18 @@ namespace Sy.Business.Repository
                     //2. islem orderdetail
                     foreach (var item in sepetList)
                     {
+                        //stokta o an varmi?
+
+                        var actionList = Context.ProductStockActions
+                            .Where(x => x.ProductId == item.ProductId).ToList();
+
+                        var gelenAdet = actionList.Where(x => x.StockActionType == StockActionType.Incoming).Sum(x => x.Quantity);
+                        var gidenAdet = actionList.Where(x => x.StockActionType == StockActionType.Outgoing).Sum(x => x.Quantity);
+
+                        var toplam = gelenAdet - gidenAdet;
+                        if (toplam < item.Quantity)
+                            throw new Exception($"{item.ProductName} üründen stokta sipariş miktarı kadar bulunmamaktadır. Kalan stok: {toplam}");
+
                         Context.OrderDetails.Add(new OrderDetail()
                         {
                             Id = newOrder.Id,
@@ -56,7 +69,9 @@ namespace Sy.Business.Repository
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex);
                     tran.Rollback();
+                    throw;
                 }
             }
 
