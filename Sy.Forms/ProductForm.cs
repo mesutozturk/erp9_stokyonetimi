@@ -1,10 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Forms;
-using Sy.Business.Repository;
+﻿using Sy.Business.Repository;
 using Sy.Core.Abstracts;
 using Sy.Core.Entities;
-using Sy.Core.ViewModels;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Sy.Forms
 {
@@ -18,10 +17,21 @@ namespace Sy.Forms
             ListeyiDoldur();
         }
 
+        private void RaporGetir()
+        {
+            // toplam ürün adedim
+            var urunAdet = _productRepo.Query().Count();
+            var toplamStokAdet = ((ProductRepo)_productRepo).GetProductList().Sum(x => x.UnitsInStock);
+            var toplamMaliyet = ((ProductRepo)_productRepo).GetProductList().Sum(x => x.UnitsInStock * x.UnitPrice);
+
+            lblBilgi.Text = $"{urunAdet} adet ürün bulunmakta\nStok adeti {toplamStokAdet}\nToplam maliyet: {toplamMaliyet:c2}";
+        }
+
         private void ListeyiDoldur(string search = "")
         {
             lstUrunler.DataSource = ((ProductRepo)_productRepo).GetProductList(search);
             lstUrunler.DisplayMember = "Display";
+            RaporGetir();
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
