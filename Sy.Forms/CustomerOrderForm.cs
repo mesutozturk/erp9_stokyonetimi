@@ -80,5 +80,25 @@ namespace Sy.Forms
                 _sepet.Remove(secili);
             SepetGuncelle();
         }
+
+        private void BtnSiparisOnay_Click(object sender, EventArgs e)
+        {
+            if (!_sepet.Any())
+            {
+                MessageBox.Show("Önce sepete ürün ekleyiniz");
+                return;
+            }
+
+            var orderId = ((OrderRepo)_orderRepo).MakeOrder(_sepet, dtpIstenenTarih.Value);
+            if (orderId == 0)
+                MessageBox.Show("Siparişiniz oluşmamıştır");
+            else
+            {
+                MessageBox.Show($"Siparişiniz oluşmuştur: {orderId}");
+                _sepet = new List<SepetViewModel>();
+                SepetGuncelle();
+                ListeyiDoldur();
+            }
+        }
     }
 }

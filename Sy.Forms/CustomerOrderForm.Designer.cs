@@ -34,7 +34,7 @@
             this.lstSepet = new System.Windows.Forms.ListBox();
             this.btnSepettenCikart = new System.Windows.Forms.Button();
             this.lblTutar = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpIstenenTarih = new System.Windows.Forms.DateTimePicker();
             this.btnSiparisOnay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -95,12 +95,12 @@
             this.lblTutar.TabIndex = 6;
             this.lblTutar.Text = "Sepet Toplam: 780 ₺";
             // 
-            // dateTimePicker1
+            // dtpIstenenTarih
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(678, 104);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dtpIstenenTarih.Location = new System.Drawing.Point(678, 104);
+            this.dtpIstenenTarih.Name = "dtpIstenenTarih";
+            this.dtpIstenenTarih.Size = new System.Drawing.Size(200, 22);
+            this.dtpIstenenTarih.TabIndex = 7;
             // 
             // btnSiparisOnay
             // 
@@ -111,6 +111,7 @@
             this.btnSiparisOnay.TabIndex = 8;
             this.btnSiparisOnay.Text = "Siparişi Onayla";
             this.btnSiparisOnay.UseVisualStyleBackColor = true;
+            this.btnSiparisOnay.Click += new System.EventHandler(this.BtnSiparisOnay_Click);
             // 
             // CustomerOrderForm
             // 
@@ -118,7 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1077, 548);
             this.Controls.Add(this.btnSiparisOnay);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpIstenenTarih);
             this.Controls.Add(this.lblTutar);
             this.Controls.Add(this.lstSepet);
             this.Controls.Add(this.btnSepettenCikart);
@@ -140,7 +141,7 @@
         private System.Windows.Forms.ListBox lstSepet;
         private System.Windows.Forms.Button btnSepettenCikart;
         private System.Windows.Forms.Label lblTutar;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpIstenenTarih;
         private System.Windows.Forms.Button btnSiparisOnay;
     }
 }

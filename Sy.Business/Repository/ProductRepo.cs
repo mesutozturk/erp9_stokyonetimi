@@ -19,6 +19,7 @@ namespace Sy.Business.Repository
                     CriticStock = x.CriticStock,
                     ProductName = x.ProductName,
                 }).ToList();
+            var list = new List<ProductViewModel>();
             foreach (var item in data)
             {
                 var actionList = this.Context.ProductStockActions.Where(x => x.ProductId == item.Id).ToList();
@@ -29,9 +30,10 @@ namespace Sy.Business.Repository
                 var cikanAdet = actionList.Where(x => x.StockActionType == StockActionType.Outgoing)
                     .Sum(x => x.Quantity);
                 item.UnitsInStock = girenAdet - cikanAdet;
+                if (item.UnitsInStock > 0) list.Add(item);
             }
 
-            return data;
+            return list;
         }
     }
 }
