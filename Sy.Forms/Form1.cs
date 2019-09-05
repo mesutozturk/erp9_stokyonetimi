@@ -62,5 +62,11 @@ namespace Sy.Forms
                 frm = new OrderForm();
             frm.Show();
         }
+
+        private void MüşterilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new OrderDetailForm();
+            frm.Show();
+        }
     }
 }

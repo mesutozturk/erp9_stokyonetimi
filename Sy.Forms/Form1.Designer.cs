@@ -117,6 +117,7 @@
             this.müşterilerToolStripMenuItem.Name = "müşterilerToolStripMenuItem";
             this.müşterilerToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.müşterilerToolStripMenuItem.Text = "Müşteriler";
+            this.müşterilerToolStripMenuItem.Click += new System.EventHandler(this.MüşterilerToolStripMenuItem_Click);
             // 
             // raporlarToolStripMenuItem
             // 

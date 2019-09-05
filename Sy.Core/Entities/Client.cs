@@ -17,5 +17,10 @@ namespace Sy.Core.Entities
         [Required, StringLength(50)]
         public string Email { get; set; }
         public ApplicationRole ApplicationRole { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name} {Surname}";
+        }
     }
 }
