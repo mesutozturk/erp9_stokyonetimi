@@ -92,7 +92,7 @@ namespace Sy.Forms
 
             try
             {
-                var orderId = ((OrderRepo) _orderRepo).MakeOrder(_sepet, dtpIstenenTarih.Value);
+                var orderId = ((OrderRepo)_orderRepo).MakeOrder(_sepet, dtpIstenenTarih.Value);
                 MessageBox.Show($"Siparişiniz oluşmuştur:\n Sipariş No: {orderId}");
                 _sepet = new List<SepetViewModel>();
                 SepetGuncelle();
@@ -105,7 +105,7 @@ namespace Sy.Forms
             {
                 ListeyiDoldur();
             }
-            
+
         }
     }
 }

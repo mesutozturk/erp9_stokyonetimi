@@ -11,7 +11,7 @@ namespace Sy.Business.Repository
     {
         public long MakeOrder(List<SepetViewModel> sepetList, DateTime requiredDate)
         {
-            var orderId = 0L;
+            long orderId;
             using (var tran = this.Context.Database.BeginTransaction())
             {
                 try
